@@ -1,0 +1,14 @@
+{
+  "artifact_type": "RECORDED_AI_REVIEW",
+  "expert_or_user_research": false,
+  "messages": [
+    {"id":"AC-01","role":"用户研究员","evidence_ids":["H-001","H-002","H-003"],"challenge":"三个核心体验点仍是访谈命题，不能写成已观察到的用户行为。","consequence":"把可见性、支付意愿和夹扣接受度放入真实验证看板。"},
+    {"id":"AC-02","role":"竞品分析师","evidence_ids":["E-006","E-007"],"challenge":"45W、10K、伸缩线、屏幕和温控均不能作为 Aero 的独占差异。","consequence":"全部标为能力平价，只保留需验证的任务差异。"},
+    {"id":"AC-03","role":"创意产品经理","evidence_ids":["E-002","S-001"],"challenge":"数字温度和更多图标不一定降低判断成本。","consequence":"将信息层级收敛为 Wh、状态和被动温感提示。"},
+    {"id":"AC-04","role":"商务差旅用户代理","evidence_ids":["H-001","H-003"],"challenge":"用户不会持续盯屏，夹在包带上也可能显得累赘。","consequence":"用盲测理解度和坐姿取用任务决定功能去留。"},
+    {"id":"AC-05","role":"硬件工程师代理","evidence_ids":["S-002"],"challenge":"65W 与无线充叠加会增加热、体积和验证负担。","consequence":"工作概念降为 45W 有线方案并取消无线充。"},
+    {"id":"AC-06","role":"供应链专家代理","evidence_ids":["E-004","E-007"],"challenge":"温感材料、夹扣和端口保护会增加部件与可靠性测试。","consequence":"把三项结构件设为独立验证门，而非默认量产配置。"},
+    {"id":"AC-07","role":"合规专家代理","evidence_ids":["E-001","E-002","E-003"],"challenge":"不能宣传全球航空认证，设备也不能替代承运人最新规则。","consequence":"只声明清晰标识和规则核验辅助。"},
+    {"id":"AC-08","role":"红队评审","evidence_ids":["E-007"],"challenge":"如果三项任务差异无法显著提升成功率，Aero 只是现有产品的装饰性变体。","consequence":"把对照测试失败直接绑定到删除、改型或停止概念。"}
+  ]
+}

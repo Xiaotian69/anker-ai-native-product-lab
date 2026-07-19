@@ -7,3 +7,6 @@ coverage/
 .DS_Store
 Thumbs.db
 tmp/
+artifacts/demo-run/
+__pycache__/
+*.pyc

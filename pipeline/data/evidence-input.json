@@ -1,0 +1,108 @@
+{
+  "snapshot_id": "scope-evidence-2026-07-19",
+  "disclosure": "Public sources are summaries, hypotheses are unverified, and synthetic challenges are not user research.",
+  "items": [
+    {
+      "id": "E-001",
+      "title": "移动电源必须随身携带",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "RULE_CONSTRAINT",
+      "severity": 5,
+      "source_url": "https://www.faa.gov/hazmat/packsafe/airline-passengers-and-batteries",
+      "accessed_at": "2026-07-19"
+    },
+    {
+      "id": "E-002",
+      "title": "航空规则以 Wh 为关键单位",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "RULE_CONSTRAINT",
+      "severity": 4,
+      "source_url": "https://www.faa.gov/hazmat/packsafe/airline-passengers-and-batteries",
+      "accessed_at": "2026-07-19"
+    },
+    {
+      "id": "E-003",
+      "title": "不同承运人可能采用更严格限制",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "RULE_CONSTRAINT",
+      "severity": 5,
+      "source_url": "https://www.faa.gov/hazmat/packsafe/airline-passengers-and-batteries",
+      "accessed_at": "2026-07-19"
+    },
+    {
+      "id": "E-004",
+      "title": "安克已有完整移动充电能力栈",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "BRAND_CAPABILITY",
+      "severity": 4,
+      "source_url": "https://www.anker.com/",
+      "accessed_at": "2026-07-19"
+    },
+    {
+      "id": "E-005",
+      "title": "充电储能是安克核心品牌方向",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "BRAND_CAPABILITY",
+      "severity": 4,
+      "source_url": "https://www.anker.com.cn/brands",
+      "accessed_at": "2026-07-19"
+    },
+    {
+      "id": "E-006",
+      "title": "伸缩线与功率显示已进入现有产品",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "COMPETITOR_EVIDENCE",
+      "severity": 3,
+      "source_url": "https://www.theverge.com/news/709301/anker-nano-charging-station-usb-retractable",
+      "accessed_at": "2026-07-19"
+    },
+    {
+      "id": "H-001",
+      "title": "狭窄座位中的状态可见性",
+      "data_type": "INTERVIEW_HYPOTHESIS",
+      "evidence_role": "INTERVIEW_HYPOTHESIS",
+      "severity": 4,
+      "validation_status": "NOT_RUN"
+    },
+    {
+      "id": "H-002",
+      "title": "安全可解释性的支付意愿",
+      "data_type": "INTERVIEW_HYPOTHESIS",
+      "evidence_role": "INTERVIEW_HYPOTHESIS",
+      "severity": 4,
+      "validation_status": "NOT_RUN"
+    },
+    {
+      "id": "H-003",
+      "title": "固定在个人包带的接受度",
+      "data_type": "INTERVIEW_HYPOTHESIS",
+      "evidence_role": "INTERVIEW_HYPOTHESIS",
+      "severity": 3,
+      "validation_status": "NOT_RUN"
+    },
+    {
+      "id": "S-001",
+      "title": "持续读数可能造成注意负担",
+      "data_type": "SYNTHETIC_DEMO",
+      "evidence_role": "AI_CHALLENGE",
+      "severity": 4
+    },
+    {
+      "id": "S-002",
+      "title": "功能叠加带来热与体积约束",
+      "data_type": "SYNTHETIC_DEMO",
+      "evidence_role": "AI_CHALLENGE",
+      "severity": 5
+    },
+    {
+      "id": "E-007",
+      "title": "A1638 已覆盖 Aero 10K 多项基础规格",
+      "data_type": "PUBLIC_SOURCE",
+      "evidence_role": "COUNTER_EVIDENCE",
+      "severity": 5,
+      "introduced_stage": "POST_CONCEPT_RED_TEAM",
+      "source_url": "https://www.anker.com/products/a1638-10k-45w-power-bank",
+      "accessed_at": "2026-07-19"
+    }
+  ]
+}

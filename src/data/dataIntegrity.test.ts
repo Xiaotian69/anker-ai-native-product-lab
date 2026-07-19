@@ -33,6 +33,13 @@ describe('research data integrity', () => {
     expect(new Set(councilMessages.map((message) => message.role)).size).toBe(8)
   })
 
+  it('labels every baseline score as synthetic and explains its basis', () => {
+    opportunityCandidates.forEach((candidate) => {
+      expect(candidate.baselineType).toBe('SYNTHETIC_DEMO')
+      expect(candidate.scoreBasis.length).toBeGreaterThan(10)
+    })
+  })
+
   it('does not contain unsupported absolute-safety marketing', () => {
     const serialized = JSON.stringify({
       evidenceItems,

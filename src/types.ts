@@ -36,6 +36,8 @@ export interface OpportunityCandidate extends OpportunityInputs {
   name: string
   description: string
   evidenceIds: string[]
+  baselineType: 'SYNTHETIC_DEMO'
+  scoreBasis: string
 }
 
 export interface ScoredOpportunity {

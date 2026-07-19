@@ -1,0 +1,2 @@
+evidence_id,data_type,verification_status,scene,user_task,problem,original_excerpt,summary,severity,alternative,source_name,source_url,accessed_at,confidence,tags,researcher_note
+E-000,PUBLIC_SOURCE,VERIFIED,示例场景,示例任务,示例问题,仅在许可范围内保留必要原文,不改变原意的摘要,3,现有替代方案,来源名称,https://example.com,2026-07-19,中,标签1|标签2,区分观察与解释

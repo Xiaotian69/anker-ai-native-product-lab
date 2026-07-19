@@ -13,6 +13,8 @@ export const opportunityCandidates: OpportunityCandidate[] = [
     capability: 4.8,
     risk: 1.8,
     evidenceIds: ['E-001', 'E-002', 'E-003', 'E-004', 'H-001'],
+    baselineType: 'SYNTHETIC_DEMO',
+    scoreBasis: '依据已链接公开资料与待验证命题设置的工作坊假设分，不代表市场研究结论。',
   },
   {
     id: 'large-power-bank',
@@ -26,6 +28,8 @@ export const opportunityCandidates: OpportunityCandidate[] = [
     capability: 4.7,
     risk: 1.4,
     evidenceIds: ['E-004', 'E-006'],
+    baselineType: 'SYNTHETIC_DEMO',
+    scoreBasis: '依据品牌能力与竞品趋势设置的工作坊假设分，尚未用真实购买数据校准。',
   },
   {
     id: 'dorm-charging-station',
@@ -39,6 +43,8 @@ export const opportunityCandidates: OpportunityCandidate[] = [
     capability: 4.6,
     risk: 1.5,
     evidenceIds: ['E-004', 'E-006'],
+    baselineType: 'SYNTHETIC_DEMO',
+    scoreBasis: '依据能力匹配与同质化风险设置的工作坊假设分，不等于宿舍用户调研结果。',
   },
   {
     id: 'sleep-earbuds',
@@ -52,6 +58,8 @@ export const opportunityCandidates: OpportunityCandidate[] = [
     capability: 3.4,
     risk: 2.8,
     evidenceIds: [],
+    baselineType: 'SYNTHETIC_DEMO',
+    scoreBasis: '纯粹用于比较评分界面的合成假设分；当前没有链接证据，不能支持机会结论。',
   },
   {
     id: 'home-energy-assistant',
@@ -65,5 +73,7 @@ export const opportunityCandidates: OpportunityCandidate[] = [
     capability: 3.8,
     risk: 3.2,
     evidenceIds: ['E-005'],
+    baselineType: 'SYNTHETIC_DEMO',
+    scoreBasis: '仅依据品牌方向设置的合成假设分，缺少家庭能源用户与部署条件证据。',
   },
 ]

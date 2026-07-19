@@ -66,10 +66,19 @@ export const OpportunityMap = () => {
             <div className="score-display" aria-live="polite">
               <span>OPPORTUNITY SCORE</span>
               <strong>{score.toFixed(1)}</strong>
-              <small>理论区间 −5 至 20</small>
+              <small>理论区间 −5 至 25</small>
             </div>
           </div>
           <p>{selected.description}</p>
+          <div className="baseline-disclosure">
+            <span>SYNTHETIC DEMO</span>
+            <p>{selected.scoreBasis}</p>
+            <small>
+              {selected.evidenceIds.length
+                ? `关联证据：${selected.evidenceIds.join(' · ')}`
+                : '无已链接证据 · 仅用于演示评分界面'}
+            </small>
+          </div>
           <div className="slider-list">
             {controls.map(([key, label, hint]) => (
               <label key={key}>
@@ -96,11 +105,12 @@ export const OpportunityMap = () => {
           <div className="ranking-card">
             <p className="eyebrow">Baseline ranking</p>
             <h3>五个方向的基线比较</h3>
+            <span className="synthetic-label">合成演示基线</span>
             <ol>
               {ranking.map((item, index) => (
                 <li key={item.id} className={item.id === selectedId ? 'active' : ''}>
                   <span>0{index + 1}</span>
-                  <div><strong>{item.name}</strong><i style={{ width: `${Math.max(0, item.score / 20) * 100}%` }} /></div>
+                  <div><strong>{item.name}</strong><i style={{ width: `${Math.max(0, item.score / 25) * 100}%` }} /></div>
                   <b>{item.score.toFixed(1)}</b>
                 </li>
               ))}

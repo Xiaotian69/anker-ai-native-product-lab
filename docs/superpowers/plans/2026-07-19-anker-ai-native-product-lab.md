@@ -19,7 +19,7 @@
 
 - [ ] Rename the unborn branch with `git branch -M main` and confirm `git status -sb` reports `main`.
 - [ ] Create Vite metadata with scripts `dev`, `build`, `test`, and `test:watch`; configure `base: '/anker-ai-native-product-lab/'`.
-- [ ] Copy the provided PDF byte-for-byte from `E:/edge下载/Anker_AI原生产品设计方.pdf` to the public target name and compare SHA-256 hashes.
+- [ ] Copy the provided local PDF byte-for-byte to the public target name and compare SHA-256 hashes without recording its private source path.
 - [ ] Install dependencies with `npm install` and confirm the lockfile is generated without audit errors that block the build.
 - [ ] Commit the verified foundation with `git commit -m "chore: initialize product lab"`.
 

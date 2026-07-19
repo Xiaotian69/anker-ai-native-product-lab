@@ -16,6 +16,8 @@ describe('product lab application', () => {
     expect(screen.getByLabelText('搜索证据')).toBeInTheDocument()
     expect(screen.getByLabelText('证据置信度 C')).toBeInTheDocument()
     expect(screen.getByText('机会排序工具，不是市场预测')).toBeInTheDocument()
+    expect(screen.getByText('合成演示基线')).toBeInTheDocument()
+    expect(screen.getByText('理论区间 −5 至 25')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '开始评审' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /下载项目 PDF/ })).toHaveAttribute(
       'href',

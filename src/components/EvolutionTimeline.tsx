@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading'
 export const EvolutionTimeline = () => (
   <section className="section" id="evolution">
     <SectionHeading
-      eyebrow="06 · Evolution"
+      eyebrow="07 · Evolution"
       title="不是“迭代了四版”，而是哪条证据改了哪一版"
       description="每个版本保留被否定的原因，避免只展示看似顺滑的最终答案。"
     />

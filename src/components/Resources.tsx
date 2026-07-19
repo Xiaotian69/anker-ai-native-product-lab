@@ -23,7 +23,7 @@ const references = [
 export const Resources = () => (
   <section className="section resources-section" id="resources">
     <SectionHeading
-      eyebrow="08 · Resources"
+      eyebrow="10 · Resources"
       title="把方法、模板和提示词一起交付"
       description="评委可以复核来源，也可以下载材料复现同一套产品定义流程。"
     />

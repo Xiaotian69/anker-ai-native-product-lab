@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading'
 export const MethodComparison = () => (
   <section className="section comparison-section" id="comparison">
     <SectionHeading
-      eyebrow="07 · Method Shift"
+      eyebrow="09 · Method Shift"
       title="AI 驱动，不等于把传统流程交给 ChatGPT"
       description="真正变化的是证据规模、角色关系、约束介入时机与决策可追溯性。"
     />

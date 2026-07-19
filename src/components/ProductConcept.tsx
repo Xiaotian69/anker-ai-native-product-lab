@@ -20,7 +20,7 @@ const features = [
 export const ProductConcept = () => (
   <section className="section product-section" id="product">
     <SectionHeading
-      eyebrow="05 · Product Concept"
+      eyebrow="06 · Product Concept"
       title="Anker Aero 10K：让旅途用电状态更容易被判断"
       description="这是由当前证据链推导出的候选概念，不是已立项、已量产或已获认证的安克产品。"
     />

@@ -1,13 +1,29 @@
-import { render, screen, within } from '@testing-library/react'
+import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import App from '../App'
 
 const scrollIntoView = vi.fn()
+let intersectionCallback: IntersectionObserverCallback = () => undefined
+
+class MockIntersectionObserver implements IntersectionObserver {
+  readonly root = null
+  readonly rootMargin = ''
+  readonly scrollMargin = ''
+  readonly thresholds = [0]
+  constructor(callback: IntersectionObserverCallback) {
+    intersectionCallback = callback
+  }
+  disconnect = vi.fn()
+  observe = vi.fn()
+  takeRecords = vi.fn(() => [])
+  unobserve = vi.fn()
+}
 
 beforeEach(() => {
   scrollIntoView.mockClear()
   window.HTMLElement.prototype.scrollIntoView = scrollIntoView
+  vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
 })
 
 describe('product lab application', () => {
@@ -20,6 +36,7 @@ describe('product lab application', () => {
       }),
     ).toBeInTheDocument()
     expect(screen.getAllByText(/独立参赛项目/).length).toBeGreaterThan(0)
+    expect(screen.getByText('12', { selector: '.signal-grid strong' })).toBeInTheDocument()
     expect(screen.getByLabelText('搜索证据')).toBeInTheDocument()
     expect(screen.getByLabelText('证据置信度 C')).toBeInTheDocument()
     expect(screen.getByText('机会排序工具，不是市场预测')).toBeInTheDocument()
@@ -92,5 +109,26 @@ describe('product lab application', () => {
     await user.click(screen.getByRole('button', { name: '下一站' }))
     expect(screen.getByText('2 / 5')).toBeInTheDocument()
     expect(scrollIntoView).toHaveBeenCalledTimes(2)
+
+    await user.keyboard('{Escape}')
+    expect(screen.queryByRole('dialog', { name: /AI 是否真的运行/ })).not.toBeInTheDocument()
+  })
+
+  it('marks the observed section as the current navigation location', () => {
+    render(<App />)
+    expect(screen.getByRole('link', { name: '方法' })).toHaveAttribute('aria-current', 'location')
+
+    const validation = document.getElementById('validation')!
+    act(() => {
+      intersectionCallback([
+        {
+          isIntersecting: true,
+          target: validation,
+          boundingClientRect: { top: 0 },
+        } as unknown as IntersectionObserverEntry,
+      ], {} as IntersectionObserver)
+    })
+
+    expect(screen.getByRole('link', { name: '验证' })).toHaveAttribute('aria-current', 'location')
   })
 })

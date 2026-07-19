@@ -6,18 +6,19 @@ export const AICouncil = () => {
   const [current, setCurrent] = useState(-1)
   const started = current >= 0
   const finished = current === councilMessages.length - 1
-  const visibleMessages = started ? councilMessages.slice(0, current + 1) : []
+  const currentMessage = started ? councilMessages[current] : undefined
+  const completedMessages = started ? councilMessages.slice(0, current) : []
 
   return (
-    <section className="section council-section" id="council">
+    <section className="section council-section" id="council" aria-label="AI Council 多角色评审">
       <SectionHeading
-        eyebrow="04 · AI Council"
+        eyebrow="05 · AI Council"
         title="不让一个模型既当运动员，也当裁判"
-        description="八个角色依次提出发现、质疑与约束。这里播放的是本地剧本，用于演示工作流，不是假装实时调用大模型。"
+        description="八个角色依次提出发现、质疑与约束。这里播放的是已提交的录制输出，不是假装实时调用模型，也不冒充专家意见。"
       />
       <div className="demo-disclosure">
-        <span>DEMO</span>
-        多智能体工作流演示 · 内容为合成评审记录 · 结论仍需专家与真实用户验证
+        <span>RECORDED AI REVIEW</span>
+        本次 Codex 协作输出 · 可下载原始 JSON · 结论仍需专家与真实用户验证
       </div>
       <div className="council-layout">
         <div className="role-rail" aria-label="评审角色进度">
@@ -47,18 +48,40 @@ export const AICouncil = () => {
               <div className="council-progress">
                 <span style={{ width: `${((current + 1) / councilMessages.length) * 100}%` }} />
               </div>
+              {completedMessages.length > 0 && (
+                <div className="completed-summary">
+                  <h4>已完成结论</h4>
+                  <ol>
+                    {completedMessages.map((message) => (
+                      <li key={message.id}><span>{message.id}</span><p><strong>{message.role}</strong>{message.consequence}</p></li>
+                    ))}
+                  </ol>
+                </div>
+              )}
               <div className="message-stack" aria-live="polite">
-                {visibleMessages.map((message, index) => (
-                  <article className={index === current ? 'council-message current' : 'council-message'} key={message.id}>
+                {currentMessage && (
+                  <article className="council-message current" key={currentMessage.id}>
                     <div className="message-meta">
-                      <span>{message.id}</span><span className={`stance stance-${message.stance}`}>{message.stance}</span>
+                      <span>{currentMessage.id}</span><span className={`stance stance-${currentMessage.stance}`}>{currentMessage.stance}</span>
                     </div>
-                    <p className="role-name">{message.role}<small>{message.specialty}</small></p>
-                    <blockquote>{message.message}</blockquote>
-                    <p className="consequence"><span>方案响应</span>{message.consequence}</p>
+                    <p className="role-name">{currentMessage.role}<small>{currentMessage.specialty}</small></p>
+                    <blockquote>{currentMessage.message}</blockquote>
+                    <p className="consequence"><span>方案响应</span>{currentMessage.consequence}</p>
                   </article>
-                ))}
+                )}
               </div>
+              <details className="full-council-transcript">
+                <summary>展开完整评审记录</summary>
+                <div>
+                  {councilMessages.map((message) => (
+                    <section key={message.id}>
+                      <strong>{message.id} · {message.role}</strong>
+                      <p>{message.message}</p>
+                      <small>{message.consequence}</small>
+                    </section>
+                  ))}
+                </div>
+              </details>
               <div className="council-controls">
                 <button className="button button-ghost" type="button" onClick={() => setCurrent(-1)}>重置评审</button>
                 {!finished && (

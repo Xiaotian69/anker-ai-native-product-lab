@@ -1,7 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import App from '../App'
+
+const scrollIntoView = vi.fn()
+
+beforeEach(() => {
+  scrollIntoView.mockClear()
+  window.HTMLElement.prototype.scrollIntoView = scrollIntoView
+})
 
 describe('product lab application', () => {
   it('renders the evidence-to-product narrative and disclosures', () => {
@@ -67,8 +74,23 @@ describe('product lab application', () => {
 
     await user.click(screen.getByRole('button', { name: '下一位角色' }))
     expect(screen.getAllByText('竞品分析师').length).toBeGreaterThan(0)
+    expect(screen.getByText('已完成结论')).toBeInTheDocument()
+    expect(within(screen.getByLabelText('AI Council 多角色评审')).getAllByRole('article')).toHaveLength(1)
 
     await user.click(screen.getByRole('button', { name: '重置评审' }))
     expect(screen.getByRole('button', { name: '开始评审' })).toBeInTheDocument()
+  })
+
+  it('guides reviewers through five evidence-first stops', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: '评委 3 分钟导览' }))
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+    expect(scrollIntoView).toHaveBeenLastCalledWith(expect.objectContaining({ block: 'start' }))
+
+    await user.click(screen.getByRole('button', { name: '下一站' }))
+    expect(screen.getByText('2 / 5')).toBeInTheDocument()
+    expect(scrollIntoView).toHaveBeenCalledTimes(2)
   })
 })

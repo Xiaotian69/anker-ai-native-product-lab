@@ -18,6 +18,10 @@ describe('product lab application', () => {
     expect(screen.getByText('机会排序工具，不是市场预测')).toBeInTheDocument()
     expect(screen.getByText('合成演示基线')).toBeInTheDocument()
     expect(screen.getByText('理论区间 −5 至 25')).toBeInTheDocument()
+    expect(screen.getByText('7条公开证据 / 3条待验证命题 / 2条AI合成挑战')).toBeInTheDocument()
+    expect(screen.getAllByText('5/5').length).toBeGreaterThan(0)
+    expect(screen.getByText('严重度评分标尺')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '敏感性分析' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '开始评审' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /下载项目 PDF/ })).toHaveAttribute(
       'href',

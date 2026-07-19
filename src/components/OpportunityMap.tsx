@@ -4,6 +4,7 @@ import { calculateOpportunityScore, rankOpportunities } from '../lib/opportunity
 import type { OpportunityInputs } from '../types'
 import { MetricBars } from './MetricBars'
 import { SectionHeading } from './SectionHeading'
+import { SensitivityPanel } from './SensitivityPanel'
 
 const controls: [keyof OpportunityInputs, string, string][] = [
   ['confidence', '证据置信度 C', '结论被真实资料支持的程度'],
@@ -118,6 +119,7 @@ export const OpportunityMap = () => {
           </div>
         </div>
       </div>
+      <SensitivityPanel />
     </section>
   )
 }

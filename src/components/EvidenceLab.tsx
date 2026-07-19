@@ -10,6 +10,15 @@ const dataTypeLabels = {
   SYNTHETIC_DEMO: '合成演示',
 } as const
 
+const evidenceRoleLabels = {
+  RULE_CONSTRAINT: '法规与规则',
+  BRAND_CAPABILITY: '安克能力',
+  COMPETITOR_EVIDENCE: '竞品证据',
+  COUNTER_EVIDENCE: '反对当前概念',
+  INTERVIEW_HYPOTHESIS: '用户命题',
+  AI_CHALLENGE: 'AI 挑战',
+} as const
+
 export const EvidenceLab = () => {
   const [query, setQuery] = useState('')
   const [scene, setScene] = useState('')
@@ -41,6 +50,21 @@ export const EvidenceLab = () => {
           <p>没有来源的内容不会伪装成用户原话；AI 模拟只产生假设，不计入真实访谈样本。</p>
         </div>
       </div>
+      <div className="evidence-counts" aria-label="证据组成">
+        <strong>7条公开证据 / 3条待验证命题 / 2条AI合成挑战</strong>
+        <span>公开来源增加了 1 条直接反对 Aero 差异化的 A1638 证据。</span>
+      </div>
+      <details className="severity-rubric">
+        <summary>严重度评分标尺</summary>
+        <ol>
+          <li><strong>1</strong><span>轻微不便，有容易使用的替代方案</span></li>
+          <li><strong>2</strong><span>反复摩擦，但任务仍容易完成</span></li>
+          <li><strong>3</strong><span>明显延迟、困惑或体验妥协</span></li>
+          <li><strong>4</strong><span>重要场景中的任务失败或强焦虑</span></li>
+          <li><strong>5</strong><span>安全、合规或无法完成任务</span></li>
+        </ol>
+        <p>法规、竞品和能力证据的严重度表示其对立项判断的影响，不代表用户自述情绪。</p>
+      </details>
       <div className="filter-panel" aria-label="证据筛选器">
         <label className="search-field">
           <span>搜索证据</span>
@@ -94,11 +118,14 @@ export const EvidenceLab = () => {
                   {dataTypeLabels[item.dataType]}
                 </span>
               </div>
+              <span className={`evidence-role role-${item.evidenceRole.toLowerCase()}`}>
+                {evidenceRoleLabels[item.evidenceRole]}
+              </span>
               <h3>{item.title}</h3>
               <p className="evidence-problem">{item.problem}</p>
               <dl className="evidence-details">
                 <div><dt>场景</dt><dd>{item.scene}</dd></div>
-                <div><dt>严重度</dt><dd>{'●'.repeat(item.severity)}<span>{'●'.repeat(5 - item.severity)}</span></dd></div>
+                <div><dt>严重度</dt><dd className="severity-score"><strong>{item.severity}/5</strong><span>{'●'.repeat(item.severity)}<i>{'●'.repeat(5 - item.severity)}</i></span></dd></div>
                 <div><dt>替代方案</dt><dd>{item.alternative}</dd></div>
                 <div><dt>置信度</dt><dd>{item.confidence}</dd></div>
               </dl>

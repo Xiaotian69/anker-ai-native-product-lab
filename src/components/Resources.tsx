@@ -11,6 +11,8 @@ const downloads = [
   ['硬件工程师提示词', 'prompts/hardware-engineer.md', 'PROMPT'],
   ['合规专家提示词', 'prompts/compliance-expert.md', 'PROMPT'],
   ['红队评审提示词', 'prompts/red-team.md', 'PROMPT'],
+  ['离线复现脚本', 'pipeline/run_pipeline.py', 'PY'],
+  ['AI 运行清单', 'pipeline/runs/2026-07-19/run-manifest.json', 'JSON'],
 ]
 
 const references = [
@@ -18,6 +20,7 @@ const references = [
   ['Anker · Official Product Categories', '移动充电与连接产品能力', 'https://www.anker.com/'],
   ['安克创新 · 我们的品牌', '充电储能与品牌组合', 'https://www.anker.com.cn/brands'],
   ['The Verge · Nano Charging Station', '伸缩线与状态显示趋势', 'https://www.theverge.com/news/709301/anker-nano-charging-station-usb-retractable'],
+  ['Anker · Nano Power Bank A1638', '10,000mAh、45W、伸缩线、屏幕与温控反证', 'https://www.anker.com/products/a1638-10k-45w-power-bank'],
 ]
 
 export const Resources = () => (

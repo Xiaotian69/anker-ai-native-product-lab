@@ -35,24 +35,45 @@
 
 ## 可交互实验室
 
-- **Evidence Lab**：搜索并按场景、严重度和置信度筛选证据；公开资料、访谈命题和合成演示使用不同标签。
-- **Opportunity Map**：拖动 C/F/S/T/W/A/R 七项指标，实时查看评分和五个产品方向的基线比较。
-- **AI Council**：顺序播放八角色本地评审剧本，展示用户、工程、供应链与合规之间的真实冲突。
-- **Product Concept**：用原创 SVG/CSS 呈现 Aero 10K 的状态屏、温感环、伸缩线与夹扣概念。
-- **Evolution**：把 V0–V3 的问题、证据 ID 和产品修改连成一条决策链。
-- **Resources**：下载研究说明、SCOPE 方法、访谈提纲、证据 CSV 和五个角色提示词。
+- **Evidence Lab**：检索 12 条证据，显示 1–5 分标尺，并区分规则、能力、竞品、反证、访谈命题和 AI 挑战。
+- **Opportunity Map**：拖动 C/F/S/T/W/A/R 七项指标，并用均衡、安全优先、商业优先三组权重检查排名稳定性。
+- **Decision Ledger**：公开一次 Codex 运行的输入、Prompt、模型边界、原始输出、30→10→5→1 漏斗、人工状态和决策理由。
+- **AI Council**：聚焦当前角色与已完成结论；完整八角色录制输出可展开审计，不冒充实时模型或专家意见。
+- **Product Concept**：将 Aero 10K 与现有 A1638 对照，明确已有能力与三项待验证的任务差异。
+- **Validation Board**：预注册四项真实用户/工程验证的成功门槛、当前状态和失败后的产品决策。
+- **Reviewer Tour**：用五站、三分钟路径把评委带过证据、AI 运行、冲突、产品变化和下一步验证。
 
 | Evidence Lab | Opportunity Map |
 | --- | --- |
 | ![证据库](docs/screenshots/02-evidence-lab.png) | ![机会评分台](docs/screenshots/03-opportunity-map.png) |
 
-| AI Council | Product Concept |
+| AI 运行与决策账本 | AI Council |
 | --- | --- |
-| ![多智能体评审](docs/screenshots/04-ai-council.png) | ![产品概念](docs/screenshots/05-product-concept.png) |
+| ![决策账本](docs/screenshots/04-decision-ledger.png) | ![多智能体评审](docs/screenshots/05-ai-council.png) |
+
+| Product Concept | Validation Board |
+| --- | --- |
+| ![产品概念与竞品差异](docs/screenshots/06-product-concept.png) | ![真实验证看板](docs/screenshots/07-validation-board.png) |
 
 移动端已单独验证：
 
-<img src="docs/screenshots/06-mobile.png" alt="移动端首页" width="320" />
+<img src="docs/screenshots/08-mobile.png" alt="移动端首页" width="320" />
+
+## 可审计 AI 运行
+
+站点不是只画一张多智能体流程图。仓库保存了 2026-07-19 的输入、Prompt、原始机会、聚类、评审记录与人工决策账本：
+
+```text
+12 条证据 → 30 个原始方向 → 10 个主题聚类 → 5 个候选 → 1 个工作概念
+```
+
+模型记录为 `OpenAI Codex (GPT-5 family)`；精确服务端快照未向客户端暴露，因此没有虚构具体版本。作者最终确认目前仍是 `pending_author_confirmation`。
+
+```bash
+python run_pipeline.py --demo
+```
+
+该命令是确定性的**离线重放**：不会联网或调用模型，只把已提交的录制输出重新生成为可比较 JSON。详见 [运行清单](pipeline/runs/2026-07-19/run-manifest.json) 和 [决策账本](pipeline/runs/2026-07-19/decision-ledger.json)。
 
 ## 机会评分
 
@@ -64,12 +85,13 @@ O = C × (0.25F + 0.25S + 0.15T + 0.15W + 0.20A) - R
 
 ## 数据真实性声明
 
-当前站点包含 11 张研究卡：6 张来自可回溯公开网页，3 张明确标注为“访谈待验证”，2 张明确标注为“合成演示”。本项目没有声称已经完成用户访谈，也没有把 AI 用户代理当成真实用户。
+当前站点包含 12 张研究卡：7 张来自可回溯公开网页，3 张明确标注为“访谈待验证”，2 张明确标注为“合成演示”。其中 [A1638 官方资料](https://www.anker.com/products/a1638-10k-45w-power-bank) 被专门标为反对证据：现有产品已经具备 10,000mAh、45W、伸缩线、智能显示和 ActiveShield 温控，所以这些能力不能被包装成 Aero 10K 的创新。本项目没有声称已经完成用户访谈，也没有把 AI 用户代理当成真实用户。
 
 - 公开资料附来源 URL 与访问日期 `2026-07-19`。
 - 无真实来源的内容不会伪装成用户原话。
-- AI Council 是工作流演示，不是实时大模型输出或专家意见。
+- AI Council 是已记录 AI 运行的交互展示，不是实时大模型调用，也不是专家或用户研究。
 - 所有容量、功率、热、结构与价格相关结论都需要后续工程或用户验证。
+- 四项真实验证当前全部为 `NOT_RUN`；成功门槛是预注册标准，不是已取得的结果。
 - 航空携带和使用要求以承运人最新规定为准。
 
 详见 [研究说明](docs/research-notes.md) 与 [证据卡 CSV 模板](docs/evidence-template.csv)。
@@ -82,6 +104,7 @@ O = C × (0.25F + 0.25S + 0.15T + 0.15W + 0.20A) - R
 - Vitest + Testing Library
 - GitHub Actions + GitHub Pages
 - 纯前端静态数据，不需要 API Key 或服务器
+- Python 3 离线审计脚本（标准库，无额外依赖）
 
 ## 本地运行
 
@@ -99,6 +122,8 @@ Vite 会在 `/anker-ai-native-product-lab/` 子路径提供开发页面。
 ```bash
 npm test -- --run
 npm run build
+python -m unittest discover -s pipeline/tests -p "test_*.py"
+python run_pipeline.py --demo
 ```
 
 测试覆盖评分公式、输入边界、证据组合筛选、Pages 资源路径、数据来源约束和关键交互。生产构建输出到 `dist/`。
@@ -107,6 +132,7 @@ npm run build
 
 ```text
 src/                  React 页面、交互、数据与测试
+pipeline/             录制 AI 运行、Prompt、决策账本与离线重放脚本
 docs/                 方法、研究记录、访谈提纲与截图
 prompts/              五个可复用 AI 角色提示词
 public/docs/          网站可下载的 PDF 与研究材料
@@ -121,6 +147,8 @@ public/prompts/       网站可下载的提示词
 3. 用纸模验证包带夹扣的安装、查看、取用和收纳任务。
 4. 用价格阶梯验证整体方案与单项功能的支付意愿。
 5. 完成热仿真、线材回卷寿命、结构公差、样机温升与承运人规则复核。
+
+页面已为这些假设预注册成功门槛和不通过后的产品决策；在真实测试完成前，不会把它们写成已验证洞察。
 
 ## 项目声明
 

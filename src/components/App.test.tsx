@@ -35,6 +35,7 @@ describe('product lab application', () => {
         name: /当移动电源在旅途中必须可见、可接触、可判断/,
       }),
     ).toBeInTheDocument()
+    expect(screen.getByText('可判断，', { selector: '.hero-phrase' })).toBeInTheDocument()
     expect(screen.getAllByText(/独立参赛项目/).length).toBeGreaterThan(0)
     expect(screen.getByText('12', { selector: '.signal-grid strong' })).toBeInTheDocument()
     expect(screen.getByLabelText('搜索证据')).toBeInTheDocument()

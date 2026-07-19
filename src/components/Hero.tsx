@@ -10,10 +10,16 @@ export const Hero = () => (
     <div className="hero-glow" aria-hidden="true" />
     <div className="hero-copy">
       <p className="eyebrow">2026 AI先锋未来人才大赛 · 安克创新命题</p>
-      <h1>
-        当移动电源在旅途中必须
-        <span>可见、可接触、可判断，</span>
-        为什么现有产品仍主要围绕容量与功率设计？
+      <h1 aria-label="当移动电源在旅途中必须可见、可接触、可判断，为什么现有产品仍主要围绕容量与功率设计？">
+        <span className="hero-line" aria-hidden="true">当移动电源在旅途中</span>
+        <span className="hero-line hero-must" aria-hidden="true">
+          <span className="hero-word-plain">必须</span>
+          <span className="hero-phrase">可见、</span>
+          <span className="hero-phrase">可接触、</span>
+          <span className="hero-phrase">可判断，</span>
+        </span>
+        <span className="hero-line" aria-hidden="true">为什么现有产品仍主要</span>
+        <span className="hero-line" aria-hidden="true">围绕容量与功率设计？</span>
       </h1>
       <p className="hero-lead">
         这里不展示一份由 AI 代写的 PRD，而是公开一条从真实资料、待验证假设、

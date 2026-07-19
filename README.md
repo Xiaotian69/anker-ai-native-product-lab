@@ -122,7 +122,7 @@ Vite 会在 `/anker-ai-native-product-lab/` 子路径提供开发页面。
 ```bash
 npm test -- --run
 npm run build
-python -m unittest discover -s pipeline/tests -p "test_*.py"
+python -m unittest discover -s tests -p "test_*.py"
 python run_pipeline.py --demo
 ```
 

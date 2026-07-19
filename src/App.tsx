@@ -10,6 +10,7 @@ import { OpportunityMap } from './components/OpportunityMap'
 import { ProductConcept } from './components/ProductConcept'
 import { Resources } from './components/Resources'
 import { ScopeFlow } from './components/ScopeFlow'
+import { ValidationBoard } from './components/ValidationBoard'
 
 const App = () => (
   <>
@@ -26,6 +27,7 @@ const App = () => (
       <AICouncil />
       <ProductConcept />
       <EvolutionTimeline />
+      <ValidationBoard />
       <MethodComparison />
       <Resources />
     </main>

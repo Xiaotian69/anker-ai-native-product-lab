@@ -1,5 +1,6 @@
 import { ProductVisual } from './ProductVisual'
 import { SectionHeading } from './SectionHeading'
+import { CompetitorMatrix } from './CompetitorMatrix'
 
 const specs = [
   ['10,000 mAh', '约 36 Wh · 清晰机身标识'],
@@ -42,6 +43,7 @@ export const ProductConcept = () => (
         </div>
       </div>
     </div>
+    <CompetitorMatrix />
     <div className="disclaimer-grid">
       <div><strong>参数边界</strong><p>以上参数均为待验证建议，容量、功率、温升、寿命与成本需工程评估。</p></div>
       <div><strong>项目身份</strong><p>本项目为独立参赛研究，不代表安克官方，也不构成产品发布。</p></div>

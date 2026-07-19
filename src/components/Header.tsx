@@ -6,6 +6,7 @@ const navItems = [
   ['评审', 'council'],
   ['产品', 'product'],
   ['迭代', 'evolution'],
+  ['验证', 'validation'],
   ['资料', 'resources'],
 ]
 

@@ -32,6 +32,15 @@ describe('product lab application', () => {
       'href',
       expect.stringContaining('/pipeline/'),
     )
+    expect(screen.getByRole('heading', { name: /不是 A1638 加一个温感环/ })).toBeInTheDocument()
+    expect(screen.getAllByText('已有，不构成差异').length).toBeGreaterThan(1)
+    expect(screen.getByRole('link', { name: /A1638 官方页面/ })).toHaveAttribute(
+      'href',
+      'https://www.anker.com/products/a1638-10k-45w-power-bank',
+    )
+    expect(screen.getByRole('heading', { name: '真实验证看板' })).toBeInTheDocument()
+    expect(screen.getAllByText('未执行')).toHaveLength(4)
+    expect(screen.getByText('删除或重新设计温感提示')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '开始评审' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /下载项目 PDF/ })).toHaveAttribute(
       'href',

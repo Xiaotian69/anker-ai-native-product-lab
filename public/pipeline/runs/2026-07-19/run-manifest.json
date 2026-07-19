@@ -1,0 +1,29 @@
+{
+  "run_id": "scope-2026-07-19-01",
+  "run_type": "RECORDED_CODEX_COLLABORATION",
+  "model": "OpenAI Codex (GPT-5 family; exact server snapshot not exposed to the client)",
+  "run_date": "2026-07-19",
+  "author_review": "pending_author_confirmation",
+  "replay_mode": "DETERMINISTIC_NO_NETWORK",
+  "evidence_file": "../../data/evidence-input.json",
+  "prompt_files": [
+    "../../prompts/opportunity-generation.md",
+    "../../prompts/council-review.md"
+  ],
+  "raw_opportunities_file": "raw-opportunities.json",
+  "normalized_opportunities_file": "normalized-opportunities.json",
+  "decision_ledger_file": "decision-ledger.json",
+  "council_transcript_file": "council-transcript.json",
+  "funnel": {
+    "raw": 30,
+    "clusters": 10,
+    "finalists": 5,
+    "working_concept": 1
+  },
+  "disclosures": [
+    "The raw output was produced during a Codex collaboration and is not user research.",
+    "The exact server-side model snapshot is not visible to the client.",
+    "The author has not yet confirmed the recorded selection decisions.",
+    "Offline replay validates and recalculates committed data; it does not call a model."
+  ]
+}

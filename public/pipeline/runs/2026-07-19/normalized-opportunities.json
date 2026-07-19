@@ -1,0 +1,22 @@
+{
+  "artifact_type": "NORMALIZED_AI_OUTPUT_WITH_DETERMINISTIC_SCORING",
+  "clusters": [
+    {"id":"C-01","name":"航旅规则判断","member_ids":["R-001","R-002","R-003"]},
+    {"id":"C-02","name":"航旅物理可触达","member_ids":["R-004","R-005","R-006"]},
+    {"id":"C-03","name":"状态可见与无障碍","member_ids":["R-007","R-010","R-029"]},
+    {"id":"C-04","name":"移动生产力供电","member_ids":["R-008","R-009","R-014"]},
+    {"id":"C-05","name":"通用移动电源","member_ids":["R-011","R-015","R-030"]},
+    {"id":"C-06","name":"共享与固定充电","member_ids":["R-012","R-013","R-028"]},
+    {"id":"C-07","name":"睡眠与飞行音频","member_ids":["R-016","R-017","R-018"]},
+    {"id":"C-08","name":"音频助手","member_ids":["R-019","R-020"]},
+    {"id":"C-09","name":"家庭能源","member_ids":["R-021","R-022","R-023","R-024","R-025"]},
+    {"id":"C-10","name":"场景收纳与盘点","member_ids":["R-026","R-027"]}
+  ],
+  "finalists": [
+    {"id":"travel-safe-power","name":"航旅安全移动电源","source_cluster_ids":["C-01","C-02","C-03"],"evidence_ids":["E-001","E-002","E-003","E-004","H-001","E-007"],"confidence":4,"frequency":3.4,"severity":4.6,"trend":4.3,"willingness":3.1,"capability":4.8,"risk":1.8,"baseline_type":"SYNTHETIC_DEMO"},
+    {"id":"large-power-bank","name":"普通大容量移动电源","source_cluster_ids":["C-05"],"evidence_ids":["E-004","E-006","E-007"],"confidence":3.8,"frequency":4.5,"severity":3.1,"trend":3,"willingness":3.5,"capability":4.7,"risk":1.4,"baseline_type":"SYNTHETIC_DEMO"},
+    {"id":"dorm-charging-station","name":"宿舍多口充电站","source_cluster_ids":["C-06"],"evidence_ids":["E-004","E-006"],"confidence":3.5,"frequency":4,"severity":3.6,"trend":2.8,"willingness":3,"capability":4.6,"risk":1.5,"baseline_type":"SYNTHETIC_DEMO"},
+    {"id":"sleep-earbuds","name":"睡眠耳机","source_cluster_ids":["C-07"],"evidence_ids":[],"confidence":2.7,"frequency":3.1,"severity":4,"trend":3.8,"willingness":3.6,"capability":3.4,"risk":2.8,"baseline_type":"SYNTHETIC_DEMO"},
+    {"id":"home-energy-assistant","name":"智能家庭能源助手","source_cluster_ids":["C-09"],"evidence_ids":["E-005"],"confidence":2.5,"frequency":2.8,"severity":3.5,"trend":4.4,"willingness":3.2,"capability":3.8,"risk":3.2,"baseline_type":"SYNTHETIC_DEMO"}
+  ]
+}

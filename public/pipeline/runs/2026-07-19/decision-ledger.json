@@ -1,0 +1,10 @@
+{
+  "artifact_type": "DECISION_LEDGER",
+  "decisions": [
+    {"candidate_id":"travel-safe-power","decision":"WORKING_CONCEPT_NOT_VALIDATED","evidence_ids":["E-001","E-002","E-003","E-004","H-001","E-007"],"accepted_reason":"规则判断、状态可见与品牌能力形成可检验的任务组合。","rejection_pressure":"A1638 已覆盖容量、功率、伸缩线、屏幕和温控；必须证明 Wh、温感提示与夹扣带来任务提升。","author_review":"pending_author_confirmation"},
+    {"candidate_id":"large-power-bank","decision":"DEFERRED_COMMODITIZED","evidence_ids":["E-004","E-006","E-007"],"accepted_reason":"能力匹配且需求可能广泛。","rejection_pressure":"差异主要来自参数，无法说明 AI 工作流发现了新任务。","author_review":"pending_author_confirmation"},
+    {"candidate_id":"dorm-charging-station","decision":"DEFERRED_OVERLAP","evidence_ids":["E-004","E-006"],"accepted_reason":"多设备固定充电任务清楚。","rejection_pressure":"与现有多口和伸缩线产品接近，缺少宿舍样本。","author_review":"pending_author_confirmation"},
+    {"candidate_id":"sleep-earbuds","decision":"REJECTED_EVIDENCE_GAP","evidence_ids":[],"accepted_reason":"睡眠舒适可能是高痛任务。","rejection_pressure":"当前证据库没有睡眠用户或技术边界资料。","author_review":"pending_author_confirmation"},
+    {"candidate_id":"home-energy-assistant","decision":"DEFERRED_CAPABILITY_DISTANCE","evidence_ids":["E-005"],"accepted_reason":"符合长期储能方向。","rejection_pressure":"部署条件、数据接入和用户价值证据不足。","author_review":"pending_author_confirmation"}
+  ]
+}

@@ -22,6 +22,16 @@ describe('product lab application', () => {
     expect(screen.getAllByText('5/5').length).toBeGreaterThan(0)
     expect(screen.getByText('严重度评分标尺')).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: '敏感性分析' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'AI 运行与决策账本' })).toBeInTheDocument()
+    expect(screen.getByText('30 个原始方向')).toBeInTheDocument()
+    expect(screen.getByText('10 个主题聚类')).toBeInTheDocument()
+    expect(screen.getByText('5 个候选')).toBeInTheDocument()
+    expect(screen.getByText('1 个工作概念')).toBeInTheDocument()
+    expect(screen.getByText('待赵子健确认')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /原始输出 JSON/ })).toHaveAttribute(
+      'href',
+      expect.stringContaining('/pipeline/'),
+    )
     expect(screen.getByRole('button', { name: '开始评审' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /下载项目 PDF/ })).toHaveAttribute(
       'href',

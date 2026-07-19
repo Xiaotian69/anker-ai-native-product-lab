@@ -1,4 +1,5 @@
 import { AICouncil } from './components/AICouncil'
+import { DecisionLedger } from './components/DecisionLedger'
 import { EvidenceLab } from './components/EvidenceLab'
 import { EvolutionTimeline } from './components/EvolutionTimeline'
 import { Footer } from './components/Footer'
@@ -21,6 +22,7 @@ const App = () => (
       <ScopeFlow />
       <EvidenceLab />
       <OpportunityMap />
+      <DecisionLedger />
       <AICouncil />
       <ProductConcept />
       <EvolutionTimeline />

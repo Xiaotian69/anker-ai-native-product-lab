@@ -2,6 +2,7 @@ const navItems = [
   ['方法', 'scope'],
   ['证据', 'evidence'],
   ['机会', 'opportunity'],
+  ['账本', 'ledger'],
   ['评审', 'council'],
   ['产品', 'product'],
   ['迭代', 'evolution'],

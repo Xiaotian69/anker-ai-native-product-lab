@@ -5,6 +5,14 @@ export type EvidenceType =
 
 export type ConfidenceLevel = '高' | '中' | '待验证'
 
+export type EvidenceRole =
+  | 'RULE_CONSTRAINT'
+  | 'BRAND_CAPABILITY'
+  | 'COMPETITOR_EVIDENCE'
+  | 'COUNTER_EVIDENCE'
+  | 'INTERVIEW_HYPOTHESIS'
+  | 'AI_CHALLENGE'
+
 export interface EvidenceItem {
   id: string
   title: string
@@ -17,6 +25,7 @@ export interface EvidenceItem {
   accessedAt?: string
   confidence: ConfidenceLevel
   dataType: EvidenceType
+  evidenceRole: EvidenceRole
   summary: string
   tags: string[]
 }
@@ -68,4 +77,48 @@ export interface ComparisonRow {
   dimension: string
   traditional: string
   aiNative: string
+}
+
+export interface RunDecision {
+  candidateId: string
+  candidateName: string
+  decision: 'WORKING_CONCEPT_NOT_VALIDATED' | 'DEFERRED' | 'REJECTED'
+  evidenceIds: string[]
+  reason: string
+  challenge: string
+}
+
+export interface RunLedger {
+  runId: string
+  runType: 'RECORDED_CODEX_COLLABORATION'
+  model: string
+  runDate: string
+  authorReview: 'pending_author_confirmation'
+  replayMode: 'DETERMINISTIC_NO_NETWORK'
+  funnel: {
+    raw: number
+    clusters: number
+    finalists: number
+    workingConcept: number
+  }
+  decisions: RunDecision[]
+}
+
+export interface CompetitorRow {
+  capability: string
+  a1638: string
+  aero: string
+  proof: string
+  status: 'PARITY' | 'PROPOSED_UNVALIDATED'
+  sourceUrl: string
+  accessedAt: string
+}
+
+export interface ValidationHypothesis {
+  id: string
+  hypothesis: string
+  method: string
+  threshold: string
+  status: 'NOT_RUN'
+  failureDecision: string
 }

@@ -1,0 +1,68 @@
+import type { CouncilMessage } from '../types'
+
+export const councilMessages: CouncilMessage[] = [
+  {
+    id: 'C-01',
+    role: '用户研究员',
+    specialty: '证据边界',
+    stance: '发现',
+    message: '公开规则支持“随身携带、Wh 标识和防短路”，但尚未证明用户需要一款独立航旅型号。',
+    consequence: '把状态可见性与支付意愿保留为访谈命题。',
+  },
+  {
+    id: 'C-02',
+    role: '竞品分析师',
+    specialty: '同质化扫描',
+    stance: '质疑',
+    message: '伸缩线和屏幕已经进入现有充电产品，只把它们组合起来不足以形成新机会。',
+    consequence: '所有功能必须映射到航旅任务，而不是罗列参数。',
+  },
+  {
+    id: 'C-03',
+    role: '创意产品经理',
+    specialty: '概念整合',
+    stance: '决策',
+    message: '把价值主张从“更快充电”调整为“规则更易判断、状态更易感知、线材更少打扰”。',
+    consequence: '形成 Aero 10K 航旅候选概念。',
+  },
+  {
+    id: 'C-04',
+    role: '商务差旅用户',
+    specialty: '情境压力',
+    stance: '质疑',
+    message: '我不会持续盯着数字温度；如果异常提示仍需要主动读取，安全感只是界面幻觉。',
+    consequence: '提出分级温感环，但必须通过真实测试验证是否易懂。',
+  },
+  {
+    id: 'C-05',
+    role: '硬件工程师',
+    specialty: '热与功耗',
+    stance: '约束',
+    message: '65W、有线与无线充叠加会增加热、体积和验证复杂度，高刷新显示也持续耗电。',
+    consequence: '降为 45W，取消无线充，保留低功耗状态显示。',
+  },
+  {
+    id: 'C-06',
+    role: '供应链专家',
+    specialty: '制造复杂度',
+    stance: '约束',
+    message: '伸缩线、夹扣、温感材料和多点温度监测同时导入，会放大结构公差与可靠性验证工作。',
+    consequence: '将夹扣做成可拆验证件，优先验证线材寿命与热路径。',
+  },
+  {
+    id: 'C-07',
+    role: '合规专家',
+    specialty: '规则与表达',
+    stance: '约束',
+    message: '不同承运人可能采用更严格限制，产品不能以单一规则替用户做最终判断。',
+    consequence: '只清晰呈现 Wh 和状态，并始终提示核对承运人要求。',
+  },
+  {
+    id: 'C-08',
+    role: '红队评审',
+    specialty: '失败预演',
+    stance: '质疑',
+    message: '如果真实用户不理解温感环、不愿支付溢价，或夹扣妨碍取用，整个差异化会坍塌。',
+    consequence: '立项前设置概念理解、支付意愿与夹扣任务三道验证门。',
+  },
+]

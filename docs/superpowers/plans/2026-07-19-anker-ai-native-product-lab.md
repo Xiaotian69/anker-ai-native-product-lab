@@ -29,7 +29,7 @@
 - Create: `src/types.ts`, `src/lib/opportunity.ts`, `src/lib/opportunity.test.ts`, `src/lib/evidence.ts`, `src/lib/evidence.test.ts`, `src/lib/assets.ts`, `src/lib/assets.test.ts`
 - Create: `src/data/evidence.ts`, `src/data/opportunities.ts`, `src/data/council.ts`, `src/data/evolution.ts`, `src/data/comparison.ts`
 
-- [ ] Write an opportunity test asserting `calculateOpportunityScore({ confidence: 4, frequency: 3, severity: 5, trend: 4, willingness: 3, capability: 5, risk: 1 })` equals `14.8`.
+- [ ] Write an opportunity test asserting `calculateOpportunityScore({ confidence: 4, frequency: 3, severity: 5, trend: 4, willingness: 3, capability: 5, risk: 1 })` equals `15.2`.
 - [ ] Run `npm test -- src/lib/opportunity.test.ts` and confirm failure because the module is absent.
 - [ ] Implement input clamping to 0–5, weighted scoring, one-decimal rounding, and descending comparison sorting; rerun the test until it passes.
 - [ ] Write evidence tests for keyword, scene, minimum severity, and confidence filters; verify the missing filter fails, then implement the pure `filterEvidence` function.

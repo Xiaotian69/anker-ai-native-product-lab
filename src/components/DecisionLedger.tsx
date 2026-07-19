@@ -11,9 +11,17 @@ const funnel = [
 
 const decisionLabels = {
   WORKING_CONCEPT_NOT_VALIDATED: '工作概念 · 未验证',
-  DEFERRED: '暂缓',
-  REJECTED: '证据不足 · 淘汰',
+  DEFERRED_COMMODITIZED: '暂缓 · 参数同质化',
+  DEFERRED_OVERLAP: '暂缓 · 产品重合',
+  REJECTED_EVIDENCE_GAP: '淘汰 · 证据缺口',
+  DEFERRED_CAPABILITY_DISTANCE: '暂缓 · 能力距离',
 } as const
+
+const decisionTone = (decision: keyof typeof decisionLabels) => {
+  if (decision.startsWith('WORKING')) return 'working'
+  if (decision.startsWith('REJECTED')) return 'rejected'
+  return 'deferred'
+}
 
 const artifactLinks = [
   ['机会生成 Prompt', 'pipeline/prompts/opportunity-generation.md'],
@@ -75,7 +83,7 @@ export const DecisionLedger = () => (
         {runLedger.decisions.map((decision) => (
           <article key={decision.candidateId}>
             <div>
-              <span className={`decision-status decision-${decision.decision.toLowerCase()}`}>
+              <span className={`decision-status decision-${decisionTone(decision.decision)}`}>
                 {decisionLabels[decision.decision]}
               </span>
               <h4>{decision.candidateName}</h4>

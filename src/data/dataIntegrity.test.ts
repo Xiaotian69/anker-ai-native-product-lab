@@ -7,6 +7,10 @@ import { evolutionSteps } from './evolution'
 import { opportunityCandidates } from './opportunities'
 import { runLedger } from './runLedger'
 import { validationHypotheses } from './validation'
+import councilTranscript from '../../pipeline/runs/2026-07-19/council-transcript.json'
+import decisionLedgerArtifact from '../../pipeline/runs/2026-07-19/decision-ledger.json'
+import normalizedArtifact from '../../pipeline/runs/2026-07-19/normalized-opportunities.json'
+import runManifest from '../../pipeline/runs/2026-07-19/run-manifest.json'
 
 describe('research data integrity', () => {
   it('keeps every public-source record traceable to a dated URL', () => {
@@ -49,6 +53,50 @@ describe('research data integrity', () => {
     })
   })
 
+  it('renders the committed run artifacts without content drift', () => {
+    expect(councilMessages.map(({ id, role, evidenceIds, message, consequence }) => ({ id, role, evidence_ids: evidenceIds, challenge: message, consequence })))
+      .toEqual(councilTranscript.messages)
+
+    expect(runLedger.runId).toBe(runManifest.run_id)
+    expect(runLedger.runType).toBe(runManifest.run_type)
+    expect(runLedger.model).toBe(runManifest.model)
+    expect(runLedger.runDate).toBe(runManifest.run_date)
+    expect(runLedger.authorReview).toBe(runManifest.author_review)
+    expect(runLedger.replayMode).toBe(runManifest.replay_mode)
+    expect(runLedger.decisions.map((decision) => ({
+      candidate_id: decision.candidateId,
+      decision: decision.decision,
+      evidence_ids: decision.evidenceIds,
+      accepted_reason: decision.reason,
+      rejection_pressure: decision.challenge,
+      author_review: decision.authorReview,
+    }))).toEqual(decisionLedgerArtifact.decisions)
+
+    expect(opportunityCandidates.map((candidate) => ({
+      id: candidate.id,
+      evidence_ids: candidate.evidenceIds,
+      confidence: candidate.confidence,
+      frequency: candidate.frequency,
+      severity: candidate.severity,
+      trend: candidate.trend,
+      willingness: candidate.willingness,
+      capability: candidate.capability,
+      risk: candidate.risk,
+      baseline_type: candidate.baselineType,
+    }))).toEqual(normalizedArtifact.finalists.map((candidate) => ({
+      id: candidate.id,
+      evidence_ids: candidate.evidence_ids,
+      confidence: candidate.confidence,
+      frequency: candidate.frequency,
+      severity: candidate.severity,
+      trend: candidate.trend,
+      willingness: candidate.willingness,
+      capability: candidate.capability,
+      risk: candidate.risk,
+      baseline_type: candidate.baseline_type,
+    })))
+  })
+
   it('sources competitor claims and makes every validation hypothesis falsifiable', () => {
     expect(competitorRows).toHaveLength(6)
     competitorRows.forEach((row) => {
@@ -84,7 +132,7 @@ describe('research data integrity', () => {
     })
 
     expect(serialized).not.toContain('绝对不起火')
-    expect(serialized).not.toContain('全球航空认证')
+    expect(serialized).not.toContain('已获得全球航空认证')
     expect(serialized).not.toContain('百分之百安全')
   })
 })

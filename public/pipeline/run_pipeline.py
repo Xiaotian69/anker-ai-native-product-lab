@@ -15,7 +15,8 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent
-DEFAULT_MANIFEST = ROOT / "pipeline" / "runs" / "2026-07-19" / "run-manifest.json"
+PIPELINE_ROOT = ROOT / "pipeline" if (ROOT / "pipeline" / "runs").is_dir() else ROOT
+DEFAULT_MANIFEST = PIPELINE_ROOT / "runs" / "2026-07-19" / "run-manifest.json"
 DEFAULT_OUTPUT = ROOT / "artifacts" / "demo-run"
 OUTPUT_NAMES = (
     "evidence-cards.json",

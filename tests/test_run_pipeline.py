@@ -79,6 +79,27 @@ class RunPipelineTests(unittest.TestCase):
             self.assertIn("30 -> 10 -> 5 -> 1", result.stdout)
             self.assertTrue((Path(directory) / "decision-log.json").exists())
 
+    def test_public_copy_runs_with_its_default_manifest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "public" / "pipeline" / "run_pipeline.py"),
+                    "--demo",
+                    "--output",
+                    directory,
+                ],
+                cwd=ROOT,
+                check=False,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("30 -> 10 -> 5 -> 1", result.stdout)
+            self.assertTrue((Path(directory) / "decision-log.json").exists())
+
 
 if __name__ == "__main__":
     unittest.main()

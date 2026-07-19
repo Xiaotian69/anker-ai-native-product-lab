@@ -66,6 +66,7 @@ export const AICouncil = () => {
                     </div>
                     <p className="role-name">{currentMessage.role}<small>{currentMessage.specialty}</small></p>
                     <blockquote>{currentMessage.message}</blockquote>
+                    <p className="message-evidence">关联证据 · {currentMessage.evidenceIds.join(' · ')}</p>
                     <p className="consequence"><span>方案响应</span>{currentMessage.consequence}</p>
                   </article>
                 )}
@@ -77,6 +78,7 @@ export const AICouncil = () => {
                     <section key={message.id}>
                       <strong>{message.id} · {message.role}</strong>
                       <p>{message.message}</p>
+                      <small>关联证据 · {message.evidenceIds.join(' · ')}</small>
                       <small>{message.consequence}</small>
                     </section>
                   ))}

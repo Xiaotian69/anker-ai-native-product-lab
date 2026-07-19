@@ -59,6 +59,7 @@ describe('product lab application', () => {
     )
     expect(screen.getByRole('heading', { name: /不是 A1638 加一个温感环/ })).toBeInTheDocument()
     expect(screen.getAllByText('已有，不构成差异').length).toBeGreaterThan(1)
+    expect(document.querySelector('td[data-label="现有 A1638"]')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /A1638 官方页面/ })).toHaveAttribute(
       'href',
       'https://www.anker.com/products/a1638-10k-45w-power-bank',
@@ -105,10 +106,12 @@ describe('product lab application', () => {
 
     await user.click(screen.getByRole('button', { name: '评委 3 分钟导览' }))
     expect(screen.getByText('1 / 5')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '先看证据边界' })).toHaveFocus()
     expect(scrollIntoView).toHaveBeenLastCalledWith(expect.objectContaining({ block: 'start' }))
 
     await user.click(screen.getByRole('button', { name: '下一站' }))
     expect(screen.getByText('2 / 5')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '再看 AI 是否真的运行' })).toHaveFocus()
     expect(scrollIntoView).toHaveBeenCalledTimes(2)
 
     await user.keyboard('{Escape}')

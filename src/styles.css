@@ -453,8 +453,9 @@ input[type="range"] { accent-color: var(--mint); cursor: pointer; }
 .decision-list article { display: grid; grid-template-columns: 190px 1fr; gap: 20px; padding: 17px 0; border-top: 1px solid var(--line); }
 .decision-list article h4 { margin: 9px 0 0; font-size: 13px; }
 .decision-status { display: inline-block; padding: 4px 7px; border-radius: 5px; background: rgba(60,191,244,.08); color: var(--blue); font-size: 8px; font-weight: 800; }
-.decision-working_concept_not_validated { background: rgba(85,229,191,.1); color: var(--mint); }
+.decision-working { background: rgba(85,229,191,.1); color: var(--mint); }
 .decision-rejected { background: rgba(255,154,77,.1); color: var(--orange); }
+.message-evidence { margin: 0 0 14px; color: #65bdd0; font-size: 9px; letter-spacing: .04em; }
 .decision-list dl { display: grid; gap: 7px; margin: 0; }
 .decision-list dl > div { display: grid; grid-template-columns: 62px 1fr; gap: 9px; }
 .decision-list dt { color: #5f7a8d; font-size: 9px; }
@@ -553,6 +554,15 @@ input[type="range"] { accent-color: var(--mint); cursor: pointer; }
   .completed-summary ol, .full-council-transcript > div { grid-template-columns: 1fr; }
   .competitor-matrix, .sensitivity-panel, .decision-list, .artifact-panel { padding: 18px; }
   .matrix-heading > a { flex: auto; }
+  .comparison-table-wrap { overflow: visible; border: 0; }
+  .comparison-table-wrap table, .comparison-table-wrap tbody, .comparison-table-wrap tr, .comparison-table-wrap th, .comparison-table-wrap td { display: block; width: 100%; min-width: 0; }
+  .comparison-table-wrap thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .comparison-table-wrap table { background: transparent; }
+  .comparison-table-wrap tbody { display: grid; gap: 12px; }
+  .comparison-table-wrap tr { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: #091a29; }
+  .comparison-table-wrap tbody th { padding: 14px; border-bottom: 1px solid var(--line); background: #10283c; font-size: 11px; }
+  .comparison-table-wrap td { display: grid; grid-template-columns: 105px 1fr; gap: 12px; padding: 11px 14px; }
+  .comparison-table-wrap td::before { content: attr(data-label); color: #5f7a8d; font-size: 8px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
   .validation-grid dl { grid-template-columns: 1fr; }
   .reviewer-tour { right: 14px; bottom: 14px; width: calc(100vw - 28px); }
 }

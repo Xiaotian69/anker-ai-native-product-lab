@@ -58,6 +58,7 @@ export interface ScoredOpportunity {
 export interface CouncilMessage {
   id: string
   role: string
+  evidenceIds: string[]
   specialty: string
   stance: '发现' | '质疑' | '约束' | '决策'
   message: string
@@ -82,10 +83,16 @@ export interface ComparisonRow {
 export interface RunDecision {
   candidateId: string
   candidateName: string
-  decision: 'WORKING_CONCEPT_NOT_VALIDATED' | 'DEFERRED' | 'REJECTED'
+  decision:
+    | 'WORKING_CONCEPT_NOT_VALIDATED'
+    | 'DEFERRED_COMMODITIZED'
+    | 'DEFERRED_OVERLAP'
+    | 'REJECTED_EVIDENCE_GAP'
+    | 'DEFERRED_CAPABILITY_DISTANCE'
   evidenceIds: string[]
   reason: string
   challenge: string
+  authorReview: 'pending_author_confirmation'
 }
 
 export interface RunLedger {

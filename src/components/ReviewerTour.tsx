@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const tourSteps = [
   { target: 'evidence', title: '先看证据边界', description: '区分 7 条公开资料、3 条待验证命题和 2 条 AI 挑战，并先看反对 Aero 的 E-007。' },
@@ -14,6 +14,7 @@ interface ReviewerTourProps {
 
 export const ReviewerTour = ({ onClose }: ReviewerTourProps) => {
   const [current, setCurrent] = useState(0)
+  const titleRef = useRef<HTMLHeadingElement>(null)
   const step = tourSteps[current]
   const finished = current === tourSteps.length - 1
 
@@ -22,6 +23,7 @@ export const ReviewerTour = ({ onClose }: ReviewerTourProps) => {
     const reduceMotion = typeof window.matchMedia === 'function' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     target?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' })
+    titleRef.current?.focus()
   }, [step.target])
 
   useEffect(() => {
@@ -47,7 +49,7 @@ export const ReviewerTour = ({ onClose }: ReviewerTourProps) => {
         <i style={{ width: `${((current + 1) / tourSteps.length) * 100}%` }} />
       </div>
       <p className="eyebrow">STOP · {step.target.toUpperCase()}</p>
-      <h2 id="reviewer-tour-title">{step.title}</h2>
+      <h2 id="reviewer-tour-title" ref={titleRef} tabIndex={-1} aria-live="polite">{step.title}</h2>
       <p>{step.description}</p>
       <div className="tour-controls">
         <button type="button" className="button button-ghost" onClick={onClose}>关闭导览</button>

@@ -28,10 +28,10 @@ export const CompetitorMatrix = () => (
           {competitorRows.map((row) => (
             <tr key={row.capability}>
               <th scope="row">{row.capability}</th>
-              <td>{row.a1638}</td>
-              <td>{row.aero}</td>
-              <td>{row.proof}</td>
-              <td>
+              <td data-label="现有 A1638">{row.a1638}</td>
+              <td data-label="Aero 10K 建议">{row.aero}</td>
+              <td data-label="需要什么证明">{row.proof}</td>
+              <td data-label="结论">
                 <span className={`matrix-status matrix-${row.status.toLowerCase()}`}>
                   {row.status === 'PARITY' ? '已有，不构成差异' : '待验证差异'}
                 </span>

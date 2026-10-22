@@ -21,6 +21,17 @@
 
 以上只是待验证建议，不代表安克已立项、已量产或已认证的产品。
 
+### 项目状态一览
+
+| 类别 | 内容 | 状态 |
+| --- | --- | --- |
+| 已完成的作品 | 交互式展示站（7 个模块）、12 张证据卡、一次录制的 AI 运行与决策账本、离线重放脚本、自动化测试 | ✅ 已实现 |
+| 产品概念 | Anker Aero 10K 候选移动电源 | 💡 待验证假设 |
+| 真实用户与工程验证 | 4 项预注册验证（理解度、夹扣任务、支付意愿、热与结构） | ⏳ 全部 `NOT_RUN` |
+| 外部关系 | 独立参赛作品，与安克创新无隶属、合作或背书关系 | — |
+
+> English summary: an independent competition entry (2026 AI Pioneer Future Talent Competition, Anker topic) exploring AI-native product definition. It ships an interactive evidence-to-decision site, a recorded and replayable AI run, and a candidate concept. The concept and all user/engineering hypotheses are **not yet validated**; this is not an Anker product or an official Anker project.
+
 ## SCOPE AI 双闭环
 
 | 阶段 | 作用 | 关键产物 |
